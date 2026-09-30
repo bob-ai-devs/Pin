@@ -69,6 +69,7 @@ The application identifies pincodes in the following ranges:
 | 5 km   | Pincodes within 5 km             |
 | 10 km  | Pincodes between 5 km and 10 km  |
 | 20 km  | Pincodes between 10 km and 20 km |
+| 50 km  | Pincodes between 20 km and 50 km |
 
 The nearest pincode is also identified independently.
 
@@ -122,7 +123,8 @@ Different marker colours represent different categories.
 | 🟠 Orange | Nearest Pincode          |
 | 🟢 Green  | Within 5 km              |
 | 🔵 Blue   | Within 10 km             |
-| ⚫ Black   | Within 20 km             |
+| 🟣 Purple | Within 20 km             |
+| ⚫ Black   | Within 50 km             |
 
 Each marker provides the pincode and corresponding district/state information.
 
@@ -137,6 +139,7 @@ For each radius:
 * 5 km
 * 10 km
 * 20 km
+* 50 km
 
 the application identifies pincodes that appear in one dataset but not the other.
 
@@ -333,7 +336,8 @@ Load Area Centroid Data
       ├──► Find Nearest Pincode
       ├──► Find 5 km Pincodes
       ├──► Find 10 km Pincodes
-      └──► Find 20 km Pincodes
+      ├──► Find 20 km Pincodes
+      └──► Find 50 km Pincodes
       │
       ▼
 Load Post Office Data
@@ -341,7 +345,8 @@ Load Post Office Data
       ├──► Find Nearest Pincode
       ├──► Find 5 km Pincodes
       ├──► Find 10 km Pincodes
-      └──► Find 20 km Pincodes
+      ├──► Find 20 km Pincodes
+      └──► Find 50 km Pincodes
       │
       ▼
 Calculate Directions
@@ -422,6 +427,7 @@ Direction
 Pincodes within 5 km
 Pincodes within 10 km
 Pincodes within 20 km
+Pincodes within 50 km
 ```
 
 ## Post-Office-Based Results
@@ -434,6 +440,7 @@ Direction
 Pincodes within 5 km
 Pincodes within 10 km
 Pincodes within 20 km
+Pincodes within 50 km
 ```
 
 ---
