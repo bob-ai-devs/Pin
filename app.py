@@ -5,6 +5,8 @@ import math
 import folium
 from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
+import os
+
 
 NAVY = "#0B3D59"
 NAVY_DEEP = "#082C41"
@@ -96,14 +98,47 @@ if "trail" not in st.session_state:
 if "pin" not in st.session_state:
     st.session_state.pin = None
 
-full_df = pd.read_csv("original_pin.csv", dtype={"pincode": str}, low_memory=False)
-full_df['pincode'] = full_df['pincode'].astype(str)
+# full_df = pd.read_csv("original_pin.csv", dtype={"pincode": str}, low_memory=False)
+# full_df['pincode'] = full_df['pincode'].astype(str)
 
-area_df = pd.read_csv("pincode_centroids_sorted.csv", dtype={"Pincode": str}, low_memory=False)
-area_df['Pincode'] = area_df['Pincode'].astype(str)
+# area_df = pd.read_csv("pincode_centroids_sorted.csv", dtype={"Pincode": str}, low_memory=False)
+# area_df['Pincode'] = area_df['Pincode'].astype(str)
 
-po_df = pd.read_csv("cleaned_pincode_lat_long.csv", dtype={"Pincode": str}, low_memory=False)
-po_df['Pincode'] = po_df['Pincode'].astype(str)
+# po_df = pd.read_csv("cleaned_pincode_lat_long.csv", dtype={"Pincode": str}, low_memory=False)
+# po_df['Pincode'] = po_df['Pincode'].astype(str)
+
+required_files = [
+    "original_pin.csv",
+    "pincode_centroids_sorted.csv",
+    "cleaned_pincode_lat_long.csv"
+]
+
+for file in required_files:
+    if not os.path.exists(file):
+        st.error(f"❌ File not found: {file}")
+        st.stop()
+
+    if os.path.getsize(file) == 0:
+        st.error(f"❌ File is empty: {file}")
+        st.stop()
+
+full_df = pd.read_csv(
+    "original_pin.csv",
+    dtype={"pincode": str},
+    low_memory=False
+)
+
+area_df = pd.read_csv(
+    "pincode_centroids_sorted.csv",
+    dtype={"Pincode": str},
+    low_memory=False
+)
+
+po_df = pd.read_csv(
+    "cleaned_pincode_lat_long.csv",
+    dtype={"Pincode": str},
+    low_memory=False
+)
 
 def show_pin_details(pin: str):
     global full_df
