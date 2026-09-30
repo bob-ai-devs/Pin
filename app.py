@@ -364,7 +364,7 @@ st.markdown(
     <div class="hero-banner">
         <div class="kicker">Pin Code \u00b7 Area Analysis</div>
         <div class="hero-title">📍 Nearby Pincode Comparator</div>
-        <div class="hero-sub">Compare nearby pincodes based on 📌 **Area Centroids** vs 🏤 **Post Office Locations**.</div>
+        <div class="hero-sub">Compare nearby pincodes based on 📌 Area Centroids vs 🏤 Post Office Locations.</div>
     </div>
     """,
     unsafe_allow_html=True,
