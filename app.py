@@ -271,7 +271,7 @@ def process_dataset(pin, df, flag):
 
 
 # === Map creation helper ===
-def create_pincode_map(pin, df, nearest_pin, within_5km, within_10km, within_20km):
+def create_pincode_map(pin, df, nearest_pin, within_5km, within_10km, within_20km, within_50km):
     lat = df.loc[df['Pincode'] == pin, 'Latitude'].values[0]
     lon = df.loc[df['Pincode'] == pin, 'Longitude'].values[0]
     m = folium.Map(location=[lat, lon], zoom_start=12)
