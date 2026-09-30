@@ -343,7 +343,7 @@ st.session_state.pin = st.text_input("🔢 Enter a valid Indian Pincode:")
 
 # Run check only when pin changes
 if st.session_state.pin != st.session_state.last_pin:
-    if st.sesion_state.pin != "": # ignore empty input
+    if st.session_state.pin != "": # ignore empty input
         if st.session_state.pin not in st.session_state.trail:
             st.session_state.trail.append(st.session_state.pin)
             # st.session_state.trail = sorted(st.session_state.trail)
